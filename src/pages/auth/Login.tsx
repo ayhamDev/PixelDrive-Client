@@ -1,9 +1,10 @@
 import InputPassword from "@/components/custom/inputPassword";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const nav = useNavigate();
   return (
     <>
       <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight ">
@@ -34,7 +35,9 @@ const Login = () => {
           </Link>
         </p>
       </div>
-      <Button className="w-full">Login</Button>
+      <Button className="w-full" onClick={() => nav("/")}>
+        Login
+      </Button>
     </>
   );
 };

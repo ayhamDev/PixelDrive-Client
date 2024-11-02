@@ -1,15 +1,19 @@
 import AppSetup from "@/pages/setup/AppSetup";
+import { Home } from "lucide-react";
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+
+// Layouts
+import AuthLayout from "./layout/AuthLayout";
 import DashboardLayout from "./layout/DashboardLayout";
 import OnBoardingLayout from "./layout/OnBoardingLayout";
-import Login from "./pages/auth/Login";
-import AuthLayout from "./layout/AuthLayout";
-import ResetPassword from "./pages/auth/RequestResetPassword";
+
+// Pages
 import Auth from "./pages/auth/Auth";
+import HomePage from "./pages/main/Home";
 
 const router = createBrowserRouter([
   // onboarding setup
@@ -67,7 +71,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <DashboardLayout />,
-    children: [],
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+    ],
   },
   // main app
 ]);

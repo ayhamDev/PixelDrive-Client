@@ -8,7 +8,7 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { CircleUserRound, Upload } from "lucide-react";
+import { CircleUserRound, Upload, UserRound } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePictureStep = () => {
@@ -31,11 +31,10 @@ const ProfilePictureStep = () => {
           {/* Made responsive */}
           <AvatarImage
             className="object-cover" // Ensures the image covers the avatar properly
-            src="https://github.com/shadcn.png"
             alt="Profile Picture"
           />
           <AvatarFallback>
-            <CircleUserRound width={"100%"} height={"100%"} strokeWidth={1} />
+            <UserRound width={"100%"} height={"100%"} strokeWidth={1} />
           </AvatarFallback>
         </Avatar>
       </CardContent>

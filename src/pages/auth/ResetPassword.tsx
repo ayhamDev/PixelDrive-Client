@@ -2,16 +2,18 @@ import InputPassword from "@/components/custom/inputPassword";
 import PasswordCheckMarks, {
   IPasswordState,
 } from "@/components/custom/passwordCheckMarks";
+import UserCard from "@/components/custom/UserCard";
 import { AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Avatar } from "@radix-ui/react-avatar";
+import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { CircleUserRound } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
+  const naviage = useNavigate();
   const PasswordRef = useRef<HTMLInputElement | null>(null);
   const [PasswordState, SetPasswordState] = useState<IPasswordState>({
     charactersLength: false,
@@ -53,22 +55,8 @@ const ResetPassword = () => {
         Enter your new password below to reset.
       </p>
       <div className="flex gap-4 flex-col my-8 ">
-        <Card className="flex p-4 gap-4 overflow-hidden">
-          <div>
-            <Avatar className="max-w-[64px] max-h-[64px]">
-              <AvatarFallback>
-                <CircleUserRound width={"64px"} height={"64px"} />
-              </AvatarFallback>
-            </Avatar>
-          </div>
-          <div className="flex flex-col gap-1">
-            <h4 className="scroll-m-20 text-l font-semibold tracking-tight">
-              ayhamgm@gmail.com
-            </h4>
-            <p className="text-sm text-muted-foreground">@ayham</p>
-          </div>
-        </Card>
-        <div className="flex justify-between flex-col space-y-2">
+        <UserCard email="ayhamgm81@gmail.com" username="ayham" />
+        <div className="flex justify-between flex-col space-y-3">
           <label htmlFor="password">New Password</label>
           <InputPassword
             name="password"
@@ -85,6 +73,9 @@ const ResetPassword = () => {
         </div>
       </div>
       <Button className="w-full">Reset Password</Button>
+      <Button className="w-full" variant="ghost" onClick={() => naviage("/")}>
+        Cancel
+      </Button>
     </>
   );
 };
